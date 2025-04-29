@@ -7,5 +7,5 @@
       "esModuleInterop": true,
       "skipLibCheck": true,
     },
-    "include": ["*.ts", "src/surebet-especial.ts", "src/utils/reconstruct-html-from-message.ts"]
+    "include": ["*.ts", "src/server.ts", "src/utils/reconstruct-html-from-message.ts"]
   }

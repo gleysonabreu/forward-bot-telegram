@@ -9,8 +9,6 @@ export const envSchema = z.object({
     APP_TL_API_HASH: z.string(),
     APP_TL_ORIGIN_CHAT_ID: z.number().int(),
     APP_TL_DESTINATION_CHAT_ID: z.number().int(),
-    APP_TL_ORIGIN_GERAL_CHAT_ID: z.number().int(),
-    APP_TL_DESTINATION_GREAL_CHAT_ID: z.number().int(),
 });
 
 export const env = envSchema.parse({
@@ -19,6 +17,4 @@ export const env = envSchema.parse({
     APP_TL_API_HASH: process.env.APP_TL_API_HASH,
     APP_TL_ORIGIN_CHAT_ID: parseInt(process.env.APP_TL_ORIGIN_CHAT_ID || '', 10),
     APP_TL_DESTINATION_CHAT_ID: parseInt(process.env.APP_TL_DESTINATION_CHAT_ID || '', 10),
-    APP_TL_ORIGIN_GERAL_CHAT_ID: parseInt(process.env.APP_TL_ORIGIN_GERAL_CHAT_ID || '', 10),
-    APP_TL_DESTINATION_GREAL_CHAT_ID: parseInt(process.env.APP_TL_DESTINATION_GREAL_CHAT_ID || '', 10),
 });
