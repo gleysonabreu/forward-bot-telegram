@@ -10,8 +10,12 @@ const apiId = env.APP_TL_API_ID;
 const apiHash = env.APP_TL_API_HASH;
 const stringSession = new StringSession(env.APP_SESSION_STRING_TL);
 
-const originChatId = env.APP_TL_ORIGIN_CHAT_ID;
 const destinationChatId = env.APP_TL_DESTINATION_CHAT_ID;
+const originChatId = env.APP_TL_ORIGIN_CHAT_ID.split(",").map(id => {
+  const parsedId = id.trim();
+  
+  return isNaN(Number(parsedId)) ? parsedId : Number(parsedId);
+});
 
 (async () => {
     console.log("🟡 Starting Telegram client...");
@@ -50,6 +54,6 @@ const destinationChatId = env.APP_TL_DESTINATION_CHAT_ID;
           console.error("❌ Error sending message:", err);
         }
       },
-      new NewMessage({ chats: [originChatId] })
+      new NewMessage({ chats: originChatId })
     );
   })();
