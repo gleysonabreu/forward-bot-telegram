@@ -37,8 +37,8 @@ const destinationChatId = env.APP_TL_DESTINATION_CHAT_ID;
         if (!message || !message.message) return;
 
         try {
-            const msgText = event.message.message;
-            const msgEntities = event.message.entities as any[];
+            const msgText = message.message;
+            const msgEntities = message.entities ?? [];
             const htmlFormatado = reconstructHtmlFromMessage(msgText, msgEntities);
             
             await client.sendMessage(destinationChatId, {
